@@ -111,6 +111,36 @@
         .zakazat:hover {
             background-color: #c94a35;
         }
+
+        .filtr {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 20px 40px;
+        }
+
+        .filtr-btn {
+            padding: 10px 24px;
+            border: 2px solid #e8604a;
+            background: white;
+            color: #e8604a;
+            border-radius: 30px;
+            font-size: 15px;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filtr-btn:hover,
+        .filtr-btn.aktiv {
+            background-color: #e8604a;
+            color: white;
+        }
+
+        .karta.skryt {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -125,9 +155,16 @@
         <p>Каждый десерт создан с любовью и заботой</p>
     </div>
 
+    <div class="filtr">
+        <button class="filtr-btn aktiv" onclick="filtrovat(this, 'vse')">Все</button>
+        <button class="filtr-btn" onclick="filtrovat(this, 'tort')">Торты</button>
+        <button class="filtr-btn" onclick="filtrovat(this, 'pirog')">Пироги</button>
+        <button class="filtr-btn" onclick="filtrovat(this, 'desert')">Десерты</button>
+    </div>
+
     <div class="kartochki">
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/snikers.jpg.jpeg" alt="Сникерс">
             <div class="karta-info">
                 <h3>Сникерс</h3>
@@ -136,7 +173,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/wupipai.jpg.jpeg" alt="Вупи Пай">
             <div class="karta-info">
                 <h3>Вупи Пай</h3>
@@ -145,7 +182,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/medovik.jpg.jpeg" alt="Медовик">
             <div class="karta-info">
                 <h3>Медовик</h3>
@@ -154,7 +191,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/chernichniy.jpg.jpeg" alt="Черничный">
             <div class="karta-info">
                 <h3>Черничный</h3>
@@ -163,7 +200,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/karamel-banan.jpg.jpeg" alt="Карамель-банан">
             <div class="karta-info">
                 <h3>Карамель-банан</h3>
@@ -172,7 +209,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/sovetskiy.jpg.jpeg" alt="Советский">
             <div class="karta-info">
                 <h3>Советский</h3>
@@ -181,7 +218,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/fistashka.jpg.jpeg" alt="Фисташковый">
             <div class="karta-info">
                 <h3>Фисташковый</h3>
@@ -190,7 +227,7 @@
             </div>
         </div>
 
-        <div class="karta">
+        <div class="karta" data-category="tort">
             <img src="images/choco.jpg.jpeg" alt="Шоколадный">
             <div class="karta-info">
                 <h3>Шоколадный</h3>
@@ -200,6 +237,21 @@
         </div>
 
     </div>
+
+    <script>
+        function filtrovat(btn, kategoriya) {
+            document.querySelectorAll('.filtr-btn').forEach(b => b.classList.remove('aktiv'));
+            btn.classList.add('aktiv');
+
+            document.querySelectorAll('.karta').forEach(karta => {
+                if (kategoriya === 'vse' || karta.dataset.category === kategoriya) {
+                    karta.classList.remove('skryt');
+                } else {
+                    karta.classList.add('skryt');
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
