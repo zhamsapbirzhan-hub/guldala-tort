@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guldala Tort</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fff9f5;
+            color: #3a3a3a;
+        }
+
+        header {
+            background-color: #fff0eb;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 2px solid #f5c5b0;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: #8b1a1a;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #b05a3a;
+        }
+
+        .katalog {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
+
+        .katalog h2 {
+            font-size: 32px;
+            color: #8b1a1a;
+            margin-bottom: 10px;
+        }
+
+        .katalog p {
+            color: #b05a3a;
+            margin-bottom: 40px;
+        }
+
+        .kartochki {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 40px 60px;
+        }
+
+        .karta {
+            background: white;
+            border-radius: 16px;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .karta:hover {
+            transform: translateY(-5px);
+        }
+
+        .karta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .karta-info {
+            padding: 20px;
+        }
+
+        .karta-info h3 {
+            font-size: 20px;
+            color: #8b1a1a;
+            margin-bottom: 8px;
+        }
+
+        .karta-info p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .zakazat {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #e8604a;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .zakazat:hover {
+            background-color: #c94a35;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎂 Guldala Tort</h1>
+        <p>Авторские торты и десерты с душой</p>
+    </header>
+
+    <div class="katalog">
+        <h2>Наши Изделия</h2>
+        <p>Каждый десерт создан с любовью и заботой</p>
+    </div>
+
+    <div class="kartochki">
+
+        <div class="karta">
+            <img src="images/snikers.jpg.jpeg" alt="Сникерс">
+            <div class="karta-info">
+                <h3>Сникерс</h3>
+                <p>Шоколадный торт с арахисом и карамелью</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta">
+            <img src="images/wupipai.jpg.jpeg" alt="Вупи Пай">
+            <div class="karta-info">
+                <h3>Вупи Пай</h3>
+                <p>Шоколадный торт с кремовой начинкой и сливками</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta">
+            <img src="images/medovik.jpg.jpeg" alt="Медовик">
+            <div class="karta-info">
+                <h3>Медовик</h3>
+                <p>Нежный медовый торт со сметанным кремом</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta">
+            <img src="images/chernichniy.jpg.jpeg" alt="Черничный">
+            <div class="karta-info">
+                <h3>Черничный</h3>
+                <p>Нежный торт с ароматными черничными ягодами и воздушным сливочным кремом</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
