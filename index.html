@@ -437,7 +437,16 @@
             <img src="images/devochka.jpg.jpeg" alt="Молочная Девочка">
             <div class="karta-info">
                 <h3>Молочная Девочка</h3>
-                <p>Нежный торт из тонких медовых коржей со сливочным кремом</p>
+                <p>Нежный торт с белоснежным сливочным кремом на сгущённом молоке</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta" data-category="tort">
+            <img src="images/milli.jpg.jpeg" alt="Миллионер">
+            <div class="karta-info">
+                <h3>Миллионер</h3>
+                <p>Шоколадный торт с ореховым кремом и шоколадной глазурью</p>
                 <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
             </div>
         </div>
@@ -527,9 +536,65 @@
             </div>
         </div>
 
+        <div class="karta" data-category="pirog">
+            <img src="images/tarycheasecake.jpg.jpeg" alt="Тары Чизкейк">
+            <div class="karta-info">
+                <h3>Тары Чизкейк</h3>
+                <p>Нежный чизкейк с тары и свежей клубникой</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <!-- десерты -->
+
+        <div class="karta" data-category="desert">
+            <img src="images/traiflwupi.jpg.jpeg" alt="Трайфл Вупи Пай">
+            <div class="karta-info">
+                <h3>Трайфл Вупи Пай</h3>
+                <p>Шоколадный десерт с воздушным сливочным кремом</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div> 
+
+        <div class="karta" data-category="desert">
+            <img src="images/korzinka1.jpg.jpeg" alt="Шокладаная Корзиночка">
+            <div class="karta-info">
+                <h3>Шокладаная Корзиночка</h3>
+                <p>Корзиночки с хрустящей шоколадной начинкой</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta" data-category="desert">
+            <img src="images/kurab.jpg.jpeg" alt="Печенье Курабье">
+            <div class="karta-info">
+                <h3>Печенье Курабье</h3>
+                <p>Нежное песочное печенье с ягодным джемом</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta" data-category="desert">
+            <img src="images/chococap.jpg.jpeg" alt="Шоколадный капкейк">
+            <div class="karta-info">
+                <h3>Шоколадный капкейк</h3>
+                <p>Шоколадный бисквит с нежным шоколадным кремом</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
+        <div class="karta" data-category="desert">
+            <img src="images/tartaletki.jpg.jpeg" alt="Тарталетки">
+            <div class="karta-info">
+                <h3>Тарталетки</h3>
+                <p>Песочные тарталетки со сливочным кремом и начинкой на выбор</p>
+                <a class="zakazat" href="https://wa.me/77752288993">Заказать</a>
+            </div>
+        </div>
+
 
         
-         <!-- миксы --> 
+        <!-- миксы --> 
 
         <div class="karta" data-category="miks">
             <img src="images/miks1.jpg.jpeg" alt="Микс №1">
@@ -544,6 +609,10 @@
 
         <div class="karta oform" data-category="oform">
             <img src="images/bab18.jpg.jpeg" alt="">
+        </div>
+
+        <div class="karta oform" data-category="oform">
+            <img src="images/kuromi.jpg.jpeg" alt="">
         </div>
 
         <div class="karta oform" data-category="oform">
@@ -574,6 +643,9 @@
             <img src="images/koro.jpg.jpeg" alt="">
         </div>
 
+        <div class="karta oform" data-category="oform">
+            <img src="images/elza.jpg.jpeg" alt="">
+        </div>
 
         <div class="karta oform" data-category="oform">
             <img src="images/apke.jpg.jpeg" alt="">
@@ -591,9 +663,25 @@
             <img src="images/sovet.jpg.jpeg" alt="">
         </div>
 
+        <div class="karta oform" data-category="oform">
+            <img src="images/zhugunusov.jpg.jpeg" alt="">
+        </div>
 
+        <div class="karta oform" data-category="oform">
+            <img src="images/keremetake.jpg.jpeg" alt="">
+        </div>
 
+        <div class="karta oform" data-category="oform">
+            <img src="images/happy3.jpg.jpeg" alt="">
+        </div>
 
+        <div class="karta oform" data-category="oform">
+            <img src="images/zz.jpg.jpeg" alt="">
+        </div>
+
+        <div class="karta oform" data-category="oform">
+            <img src="images/mine.jpg.jpeg" alt="">
+        </div>
 
 
 
@@ -654,6 +742,8 @@
     </a>
 
     <script>
+        document.querySelectorAll('.karta[data-category="oform"]').forEach(k => k.classList.add('skryt'));
+
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('naverh');
             if (window.scrollY > 400) {
@@ -668,7 +758,9 @@
             btn.classList.add('aktiv');
 
             document.querySelectorAll('.karta').forEach(karta => {
-                if (kategoriya === 'vse' || karta.dataset.category === kategoriya) {
+                if (kategoriya === 'vse' && karta.dataset.category === 'oform') {
+                    karta.classList.add('skryt');
+                } else if (kategoriya === 'vse' || karta.dataset.category === kategoriya) {
                     karta.classList.remove('skryt');
                 } else {
                     karta.classList.add('skryt');
