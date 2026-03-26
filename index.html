@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guldala Tort</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,48 +14,50 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #fdf6f0;
-            color: #3a3a3a;
+            background-color: #fdf5fb;
+            color: #4a3a4a;
         }
 
         header {
-            background: linear-gradient(135deg, #fff0f5 0%, #fde8d8 100%);
+            background: linear-gradient(160deg, #f5e6f8 0%, #fde8f2 50%, #fef0e8 100%);
             text-align: center;
-            padding: 70px 20px 60px;
+            padding: 80px 20px 70px;
         }
 
         header h1 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 56px;
-            font-weight: 600;
-            color: #c2185b;
-            margin-bottom: 12px;
+            font-weight: 400;
+            color: #7a5080;
+            margin-bottom: 14px;
             letter-spacing: 1px;
         }
 
         header p {
-            font-size: 17px;
-            color: #d4748a;
+            font-size: 15px;
+            color: #c4909a;
+            font-weight: 300;
             letter-spacing: 0.5px;
         }
 
         .katalog {
             text-align: center;
-            padding: 55px 20px 20px;
+            padding: 65px 20px 20px;
         }
 
         .katalog h2 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 36px;
-            font-weight: 600;
-            color: #c2185b;
-            margin-bottom: 8px;
+            font-weight: 400;
+            color: #7a5080;
+            margin-bottom: 10px;
         }
 
         .katalog p {
-            color: #d4748a;
-            margin-bottom: 35px;
-            font-size: 15px;
+            color: #c4909a;
+            margin-bottom: 40px;
+            font-size: 14px;
+            font-weight: 300;
         }
 
         .kartochki {
@@ -63,67 +65,70 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 28px;
-            padding: 0 40px 80px;
+            padding: 0 40px 90px;
         }
 
         .karta {
-            background: white;
-            border-radius: 20px;
+            background: #ffffff;
+            border-radius: 24px;
             width: 270px;
-            box-shadow: 0 2px 20px rgba(194, 24, 91, 0.07);
+            box-shadow: 0 4px 24px rgba(180, 120, 180, 0.1);
             overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
+            border: 1px solid #f0ddf5;
         }
 
         .karta:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 30px rgba(194, 24, 91, 0.13);
+            box-shadow: 0 12px 36px rgba(180, 120, 180, 0.18);
         }
 
         .karta img {
             width: 100%;
-            height: 210px;
+            height: 215px;
             object-fit: cover;
         }
 
         .karta-info {
-            padding: 18px 20px 20px;
+            padding: 20px 22px 24px;
         }
 
         .karta-info h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            font-weight: 600;
-            color: #c2185b;
-            margin-bottom: 6px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 21px;
+            font-weight: 400;
+            color: #7a5080;
+            margin-bottom: 7px;
         }
 
         .karta-info p {
             font-size: 13px;
-            color: #999;
-            margin-bottom: 16px;
-            line-height: 1.5;
+            color: #b8a0b8;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
         .zakazat {
             display: block;
             width: 100%;
-            padding: 11px;
-            background: linear-gradient(135deg, #f06292, #e91e8c);
+            padding: 12px;
+            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
             color: white;
             border: none;
-            border-radius: 30px;
-            font-size: 15px;
+            border-radius: 50px;
+            font-size: 14px;
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.2s;
         }
 
         .zakazat:hover {
-            opacity: 0.88;
+            opacity: 0.85;
+            transform: scale(1.02);
         }
 
         .filtr {
@@ -131,16 +136,16 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
-            padding: 0 20px 40px;
+            padding: 0 20px 45px;
         }
 
         .filtr-btn {
-            padding: 9px 22px;
-            border: 1.5px solid #f06292;
+            padding: 10px 24px;
+            border: 1.5px solid #d4a0c8;
             background: white;
-            color: #f06292;
-            border-radius: 30px;
-            font-size: 14px;
+            color: #9a6a9a;
+            border-radius: 50px;
+            font-size: 13px;
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
             cursor: pointer;
@@ -149,7 +154,7 @@
 
         .filtr-btn:hover,
         .filtr-btn.aktiv {
-            background: linear-gradient(135deg, #f06292, #e91e8c);
+            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
             border-color: transparent;
             color: white;
         }
@@ -166,9 +171,11 @@
             color: white;
             border-radius: 50px;
             padding: 14px 22px;
-            font-size: 16px;
+            font-size: 14px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -189,7 +196,7 @@
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: linear-gradient(135deg, #f06292, #e91e8c);
+            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
             color: white;
             border: none;
             border-radius: 50%;
@@ -197,12 +204,12 @@
             height: 48px;
             font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 16px rgba(180, 120, 180, 0.3);
             z-index: 999;
             display: none;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.2s, transform 0.2s;
+            transition: transform 0.2s;
         }
 
         .naverh:hover {
@@ -219,15 +226,15 @@
             }
 
             header h1 {
-                font-size: 36px;
+                font-size: 38px;
             }
 
             header p {
-                font-size: 15px;
+                font-size: 14px;
             }
 
             .katalog h2 {
-                font-size: 26px;
+                font-size: 28px;
             }
 
             .kartochki {
@@ -247,7 +254,7 @@
 
             .filtr-btn {
                 padding: 8px 16px;
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .footer-info {
@@ -256,31 +263,33 @@
         }
 
         footer {
-            background: linear-gradient(135deg, #fff0f5 0%, #fde8d8 100%);
+            background: linear-gradient(160deg, #f5e6f8 0%, #fde8f2 50%, #fef0e8 100%);
             text-align: center;
-            padding: 50px 20px 30px;
-            border-top: 1px solid #f5c5d5;
+            padding: 55px 20px 36px;
+            border-top: 1px solid #f0d0e8;
         }
 
         footer h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 30px;
-            color: #c2185b;
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #7a5080;
             margin-bottom: 8px;
         }
 
         footer .slogan {
-            color: #d4748a;
-            font-size: 14px;
-            margin-bottom: 30px;
+            color: #c4909a;
+            font-size: 13px;
+            margin-bottom: 36px;
+            font-weight: 300;
         }
 
         .footer-info {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .footer-item {
@@ -291,25 +300,27 @@
         }
 
         .footer-item .icon svg {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
         }
 
         .footer-item a,
         .footer-item p {
-            color: #555;
+            color: #9a7a9a;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 400;
         }
 
         .footer-item a:hover {
-            color: #c2185b;
+            color: #7a5080;
         }
 
         .footer-copy {
-            color: #ccc;
+            color: #c4b0c4;
             font-size: 12px;
             margin-top: 10px;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -536,7 +547,7 @@
         <div class="footer-info">
             <div class="footer-item">
                 <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#d4a0c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                         <circle cx="12" cy="9" r="2.5"/>
                     </svg>
