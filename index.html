@@ -141,6 +141,35 @@
             transform: scale(1.02);
         }
 
+        .poisk-wrap {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px 20px;
+        }
+
+        .poisk {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border: 1.5px solid #d4a0c8;
+            border-radius: 50px;
+            font-size: 14px;
+            font-family: 'Nunito', sans-serif;
+            background: white;
+            color: #4a3a4a;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .poisk::placeholder {
+            color: #c4b0c4;
+        }
+
+        .poisk:focus {
+            border-color: #c890c0;
+            box-shadow: 0 0 0 3px rgba(212, 160, 200, 0.15);
+        }
+
         .filtr {
             display: flex;
             justify-content: center;
@@ -344,6 +373,10 @@
     <div class="katalog">
         <h2>Наши Изделия</h2>
         <p>Каждый десерт создан с любовью и заботой</p>
+    </div>
+
+    <div class="poisk-wrap">
+        <input class="poisk" type="text" placeholder="Поиск..." oninput="poiskat(this.value)">
     </div>
 
     <div class="filtr">
@@ -752,6 +785,20 @@
                 btn.style.display = 'none';
             }
         });
+
+        function poiskat(tekst) {
+            const q = tekst.toLowerCase().trim();
+            document.querySelectorAll('.karta').forEach(karta => {
+                if (karta.dataset.category === 'oform') return;
+                const nazv = karta.querySelector('h3');
+                if (!nazv) return;
+                if (q === '' || nazv.textContent.toLowerCase().includes(q)) {
+                    karta.classList.remove('skryt');
+                } else {
+                    karta.classList.add('skryt');
+                }
+            });
+        }
 
         function filtrovat(btn, kategoriya) {
             document.querySelectorAll('.filtr-btn').forEach(b => b.classList.remove('aktiv'));
