@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guldala Tort</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,89 +14,136 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #fdf5fb;
-            color: #4a3a4a;
+            background-color: #fdf0f5;
+            color: #2d1a1a;
         }
 
         header {
-            background: linear-gradient(160deg, #f5e6f8 0%, #fde8f2 50%, #fef0e8 100%);
+            background: linear-gradient(180deg, #fce4ec 0%, #fff8f0 100%);
             text-align: center;
-            padding: 80px 20px 70px;
+            padding: 60px 20px 70px;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 16px rgba(240, 100, 130, 0.15);
         }
 
         header h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 56px;
-            font-weight: 400;
-            color: #7a5080;
-            margin-bottom: 14px;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 62px;
+            font-weight: 700;
+            color: #8b1a3a;
+            margin-bottom: 16px;
         }
 
         header p {
-            font-size: 15px;
-            color: #c4909a;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 36px;
+            font-weight: 400;
+        }
+
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header-badge {
+            background: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #555;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            font-weight: 600;
         }
 
         .katalog {
             text-align: center;
-            padding: 65px 20px 20px;
+            padding: 70px 20px 20px;
         }
 
         .katalog h2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 36px;
-            font-weight: 400;
-            color: #7a5080;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #8b1a3a;
             margin-bottom: 10px;
         }
 
         .katalog p {
-            color: #c4909a;
+            color: #e57399;
             margin-bottom: 40px;
-            font-size: 14px;
-            font-weight: 300;
+            font-size: 16px;
         }
 
         .kartochki {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 28px;
+            gap: 24px;
             padding: 0 40px 90px;
         }
 
         .karta {
-            background: #ffffff;
-            border-radius: 24px;
-            width: 270px;
-            box-shadow: 0 4px 24px rgba(180, 120, 180, 0.1);
+            background: white;
+            border-radius: 20px;
+            width: 280px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.07);
             overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
-            border: 1px solid #f0ddf5;
+            border: none;
+            position: relative;
         }
 
         .karta:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 36px rgba(180, 120, 180, 0.18);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.12);
         }
 
-        .karta img {
+        .karta-img-wrap {
+            background: linear-gradient(135deg, #fce4ec 0%, #fff8f0 100%);
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .karta-img-wrap img {
             width: 100%;
-            height: 215px;
+            height: 100%;
             object-fit: cover;
         }
 
-        .karta.oform img {
-            height: 270px;
-            display: block;
+        .karta-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: white;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: #8b1a3a;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .karta.oform {
-            font-size: 0;
-            line-height: 0;
+        .karta.oform .karta-img-wrap {
+            height: 270px;
+        }
+
+        .karta.oform .karta-info {
+            display: none;
         }
 
         .karta-info {
@@ -104,32 +151,31 @@
         }
 
         .karta-info h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 21px;
-            font-weight: 400;
-            color: #7a5080;
-            margin-bottom: 7px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #8b1a3a;
+            margin-bottom: 8px;
         }
 
         .karta-info p {
             font-size: 13px;
-            color: #b8a0b8;
-            margin-bottom: 18px;
+            color: #e57399;
+            margin-bottom: 20px;
             line-height: 1.6;
-            font-weight: 300;
         }
 
         .zakazat {
             display: block;
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
+            background: linear-gradient(135deg, #f06292, #e91e8c);
             color: white;
             border: none;
             border-radius: 50px;
             font-size: 14px;
             font-family: 'Nunito', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
@@ -137,7 +183,7 @@
         }
 
         .zakazat:hover {
-            opacity: 0.85;
+            opacity: 0.88;
             transform: scale(1.02);
         }
 
@@ -150,24 +196,23 @@
         .poisk {
             width: 100%;
             max-width: 400px;
-            padding: 12px 20px;
-            border: 1.5px solid #d4a0c8;
+            padding: 13px 22px;
+            border: 1.5px solid #f8bbd0;
             border-radius: 50px;
             font-size: 14px;
             font-family: 'Nunito', sans-serif;
             background: white;
-            color: #4a3a4a;
+            color: #2d1a1a;
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         }
 
-        .poisk::placeholder {
-            color: #c4b0c4;
-        }
+        .poisk::placeholder { color: #ccc; }
 
         .poisk:focus {
-            border-color: #c890c0;
-            box-shadow: 0 0 0 3px rgba(212, 160, 200, 0.15);
+            border-color: #f06292;
+            box-shadow: 0 0 0 3px rgba(240, 98, 146, 0.12);
         }
 
         .filtr {
@@ -179,28 +224,27 @@
         }
 
         .filtr-btn {
-            padding: 10px 24px;
-            border: 1.5px solid #d4a0c8;
+            padding: 11px 26px;
+            border: none;
             background: white;
-            color: #9a6a9a;
+            color: #555;
             border-radius: 50px;
-            font-size: 13px;
+            font-size: 14px;
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
         }
 
         .filtr-btn:hover,
         .filtr-btn.aktiv {
-            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
-            border-color: transparent;
+            background: linear-gradient(135deg, #f06292, #e91e8c);
             color: white;
+            box-shadow: 0 4px 16px rgba(240, 98, 146, 0.35);
         }
 
-        .karta.skryt {
-            display: none;
-        }
+        .karta.skryt { display: none; }
 
         .whatsapp-btn {
             position: fixed;
@@ -212,7 +256,7 @@
             padding: 14px 22px;
             font-size: 14px;
             font-family: 'Nunito', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             display: flex;
@@ -227,15 +271,13 @@
             transform: scale(1.05);
         }
 
-        .whatsapp-btn .wa-text {
-            display: inline;
-        }
+        .whatsapp-btn .wa-text { display: inline; }
 
         .naverh {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: linear-gradient(135deg, #d4a0c8, #e8a0b8);
+            background: linear-gradient(135deg, #f06292, #e91e8c);
             color: white;
             border: none;
             border-radius: 50%;
@@ -243,7 +285,7 @@
             height: 48px;
             font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 4px 16px rgba(180, 120, 180, 0.3);
+            box-shadow: 0 4px 16px rgba(240, 98, 146, 0.35);
             z-index: 999;
             display: none;
             align-items: center;
@@ -251,123 +293,139 @@
             transition: transform 0.2s;
         }
 
-        .naverh:hover {
-            transform: scale(1.1);
-        }
+        .naverh:hover { transform: scale(1.1); }
 
         @media (max-width: 600px) {
-            .whatsapp-btn {
-                padding: 14px;
-                border-radius: 50%;
-            }
-            .whatsapp-btn .wa-text {
-                display: none;
-            }
+            .whatsapp-btn { padding: 14px; border-radius: 50%; }
+            .whatsapp-btn .wa-text { display: none; }
+            header h1 { font-size: 38px; }
+            header p { font-size: 15px; }
+            .katalog h2 { font-size: 32px; }
+            .kartochki { padding: 0 16px 60px; gap: 16px; }
+            .karta { width: 100%; max-width: 360px; }
+            .filtr { gap: 8px; padding: 0 16px 30px; }
+            .filtr-btn { padding: 9px 16px; font-size: 13px; }
+        }
 
-            header h1 {
-                font-size: 38px;
-            }
+        /* Контакты */
+        .kontakty {
+            background: linear-gradient(180deg, #fce4ec 0%, #fff8f0 100%);
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
 
-            header p {
-                font-size: 14px;
-            }
+        .kontakty h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #8b1a3a;
+            margin-bottom: 10px;
+        }
 
-            .katalog h2 {
-                font-size: 28px;
-            }
+        .kontakty .sub {
+            color: #e57399;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
 
-            .kartochki {
-                padding: 0 16px 60px;
-                gap: 20px;
-            }
+        .kontakty-karta {
+            background: white;
+            border-radius: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+        }
 
-            .karta {
-                width: 100%;
-                max-width: 360px;
-            }
+        .kontakty-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
 
-            .filtr {
-                gap: 8px;
-                padding: 0 16px 30px;
-            }
+        .kontakty-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
 
-            .filtr-btn {
-                padding: 8px 16px;
-                font-size: 12px;
-            }
+        .kontakty-ico {
+            width: 42px;
+            height: 42px;
+            background: #fce4ec;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
 
-            .footer-info {
-                gap: 24px;
-            }
+        .kontakty-ico svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .kontakty-item strong {
+            display: block;
+            color: #8b1a3a;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .kontakty-item span {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .wa-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f06292, #e91e8c);
+            color: white;
+            border-radius: 50px;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .wa-big:hover { opacity: 0.88; transform: scale(1.02); }
+
+        .wa-note {
+            color: #e57399;
+            font-size: 13px;
         }
 
         footer {
-            background: linear-gradient(160deg, #f5e6f8 0%, #fde8f2 50%, #fef0e8 100%);
+            background: #fce4ec;
             text-align: center;
-            padding: 55px 20px 36px;
-            border-top: 1px solid #f0d0e8;
+            padding: 24px 20px;
         }
 
-        footer h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 28px;
-            font-weight: 400;
-            color: #7a5080;
-            margin-bottom: 8px;
-        }
-
-        footer .slogan {
-            color: #c4909a;
+        footer p {
+            color: #e57399;
             font-size: 13px;
-            margin-bottom: 36px;
-            font-weight: 300;
-        }
-
-        .footer-info {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-bottom: 32px;
-        }
-
-        .footer-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .footer-item .icon svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        .footer-item a,
-        .footer-item p {
-            color: #9a7a9a;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 400;
-        }
-
-        .footer-item a:hover {
-            color: #7a5080;
-        }
-
-        .footer-copy {
-            color: #c4b0c4;
-            font-size: 12px;
-            margin-top: 10px;
-            font-weight: 300;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🎂 Guldala Tort</h1>
+        <div class="header-icon">🎂</div>
+        <h1>Guldala Tort</h1>
         <p>Авторские торты и десерты с душой</p>
+        <div class="header-badges">
+            <span class="header-badge">🎂 Торты на заказ</span>
+            <span class="header-badge">🧁 Свежая выпечка</span>
+            <span class="header-badge">✨ Индивидуальный дизайн</span>
+        </div>
     </header>
 
     <div class="katalog">
@@ -720,49 +778,71 @@
 
     </div>
 
-    <footer>
-        <h3>🎂 Guldala Tort</h3>
-        <p class="slogan">Авторские торты и десерты с душой</p>
-
-        <div class="footer-info">
-            <div class="footer-item">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#d4a0c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                        <circle cx="12" cy="9" r="2.5"/>
-                    </svg>
-                </span>
-                <p>г. Алматы, село Гульдала</p>
-                <p>ул. Конаев 38</p>
+    <section class="kontakty">
+        <h2>Свяжитесь с Нами</h2>
+        <p class="sub">Готовы создать торт вашей мечты</p>
+        <div class="kontakty-karta">
+            <div class="kontakty-grid">
+                <div class="kontakty-item">
+                    <div class="kontakty-ico">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Телефон</strong>
+                        <span>+7 (775) 228-89-93</span>
+                    </div>
+                </div>
+                <div class="kontakty-item">
+                    <div class="kontakty-ico">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                            <circle cx="12" cy="9" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Адрес</strong>
+                        <span>с. Гульдала, ул. Конаев 38</span>
+                    </div>
+                </div>
+                <div class="kontakty-item">
+                    <div class="kontakty-ico">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Часы работы</strong>
+                        <span>Ежедневно: 9:00 – 21:00</span>
+                    </div>
+                </div>
+                <div class="kontakty-item">
+                    <div class="kontakty-ico">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span>Быстрый ответ</span>
+                    </div>
+                </div>
             </div>
-            <div class="footer-item">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="#25d366">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                </span>
-                <a href="https://wa.me/77752288993">+7 775 228 8993</a>
-            </div>
-            <div class="footer-item">
-                <span class="icon">
-                    <svg viewBox="0 0 24 24" fill="url(#ig)">
-                        <defs>
-                            <linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#f09433"/>
-                                <stop offset="25%" stop-color="#e6683c"/>
-                                <stop offset="50%" stop-color="#dc2743"/>
-                                <stop offset="75%" stop-color="#cc2366"/>
-                                <stop offset="100%" stop-color="#bc1888"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </span>
-                <a href="https://instagram.com/guldala_tort" target="_blank">@guldala_tort</a>
-            </div>
+            <a class="wa-big" href="https://wa.me/77752288993" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Заказать через WhatsApp
+            </a>
+            <p class="wa-note">Ответим в течение 15 минут</p>
         </div>
+    </section>
 
-        <p class="footer-copy">© 2026 Guldala Tort. Все права защищены.</p>
+    <footer>
+        <p>© 2026 Guldala Tort. Все права защищены.</p>
+        <p>Сделано с любовью в Казахстане 🇰🇿</p>
     </footer>
 
     <button class="naverh" id="naverh" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
@@ -775,7 +855,26 @@
     </a>
 
     <script>
+        // Скрываем оформление по умолчанию
         document.querySelectorAll('.karta[data-category="oform"]').forEach(k => k.classList.add('skryt'));
+
+        // Добавляем бейджи и оборачиваем картинки
+        const badgeNames = { tort: 'Торты', pirog: 'Пироги', desert: 'Десерты', miks: 'Миксы', oform: 'Оформление' };
+        document.querySelectorAll('.karta').forEach(karta => {
+            const img = karta.querySelector('img');
+            if (!img) return;
+            const wrap = document.createElement('div');
+            wrap.className = 'karta-img-wrap';
+            img.parentNode.insertBefore(wrap, img);
+            wrap.appendChild(img);
+            const cat = karta.dataset.category;
+            if (cat && badgeNames[cat]) {
+                const badge = document.createElement('span');
+                badge.className = 'karta-badge';
+                badge.textContent = badgeNames[cat];
+                wrap.appendChild(badge);
+            }
+        });
 
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('naverh');
