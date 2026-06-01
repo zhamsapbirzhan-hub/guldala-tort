@@ -18,11 +18,10 @@
   var SITE     = C.siteName    || 'Guldala Tort';
 
   /* ── Conversation data ───────────────────────────────────── */
-  var CAKE_TYPES = [
-    { id: 'birthday', label: '🎂 День рождения' },
-    { id: 'wedding',  label: '💍 Свадьба'        },
-    { id: 'kids',     label: '🧒 Детский'         },
-    { id: 'other',    label: '✨ Другое'           },
+  var CATEGORIES = [
+    { label: '🎂 Торты'   },
+    { label: '🥧 Пироги'  },
+    { label: '🍮 Десерты' },
   ];
 
   var PRICES_HTML =
@@ -123,7 +122,14 @@
     row.appendChild(inp);
     row.appendChild(sendBtn);
     inputArea.appendChild(row);
-    setTimeout(function () { inp.focus(); }, 50);
+    setTimeout(function () {
+      inp.focus();
+      messages.scrollTop = messages.scrollHeight;
+    }, 50);
+
+    inp.addEventListener('focus', function () {
+      setTimeout(function () { messages.scrollTop = messages.scrollHeight; }, 350);
+    });
   }
 
   /* ── Flow steps ──────────────────────────────────────────── */
@@ -151,23 +157,41 @@
   }
 
   function goOrder() {
-    step = 'CAKE_TYPE';
+    step = 'CATEGORY';
     userMsg('🛒 Сделать заказ');
-    botMsg('<b>Шаг 1 из 5.</b> Выберите тип торта:');
+    botMsg('<b>Шаг 1 из 5.</b> Выберите категорию:');
     showButtons(
-      CAKE_TYPES.map(function (t) {
-        return { label: t.label, action: function () { pickCakeType(t.label); } };
+      CATEGORIES.map(function (t) {
+        return { label: t.label, action: function () { pickCategory(t.label); } };
       })
     );
   }
 
-  function pickCakeType(label) {
-    step = 'PORTIONS';
-    order.cakeType = label;
+  function pickCategory(label) {
+    step = 'DESCRIPTION';
+    order.category = label;
     userMsg(label);
     botMsg(
-      'Выбрано: <b>' + esc(label) + '</b> ✅<br><br>' +
-      '<b>Шаг 2 из 5.</b> Сколько нужно порций?<br>' +
+      'Категория: <b>' + esc(label) + '</b> ✅<br><br>' +
+      '<b>Шаг 2 из 5.</b> Что именно хотите заказать?<br>' +
+      '<i>Опишите свободно: вид, вкус, оформление, надпись — всё что важно</i>'
+    );
+    showTextInput('Опишите ваш заказ', function (val) {
+      if (val.length > 1000) {
+        botMsg('⚠️ Слишком длинное описание (максимум 1000 символов).');
+        return;
+      }
+      pickDescription(val);
+    });
+  }
+
+  function pickDescription(val) {
+    step = 'PORTIONS';
+    order.description = val;
+    userMsg(val);
+    botMsg(
+      'Записано ✅<br><br>' +
+      '<b>Шаг 3 из 5.</b> Сколько нужно порций?<br>' +
       '<i>Введите число от 1 до 500, например: 12</i>'
     );
     showTextInput('Количество порций (напр. 12)', function (val) {
@@ -185,7 +209,7 @@
     userMsg(val);
     botMsg(
       'Порций: <b>' + esc(val) + '</b> ✅<br><br>' +
-      '<b>Шаг 3 из 5.</b> Когда нужен торт?<br>' +
+      '<b>Шаг 4 из 5.</b> Когда нужен заказ?<br>' +
       '<i>Например: 15 июля 2025 или 15.07.2025</i>'
     );
     showTextInput('Дата (напр. 15.07.2025)', function (val) {
@@ -198,29 +222,11 @@
   }
 
   function pickDate(val) {
-    step = 'DESIGN';
+    step = 'NAME';
     order.date = val;
     userMsg(val);
     botMsg(
       'Дата: <b>' + esc(val) + '</b> ✅<br><br>' +
-      '<b>Шаг 4 из 5.</b> Пожелания по дизайну<br>' +
-      '<i>Цвет, надпись, тематика — опишите как хотите</i>'
-    );
-    showTextInput('Описание дизайна', function (val) {
-      if (val.length > 1000) {
-        botMsg('⚠️ Слишком длинное описание (максимум 1000 символов).');
-        return;
-      }
-      pickDesign(val);
-    });
-  }
-
-  function pickDesign(val) {
-    step = 'NAME';
-    order.design = val;
-    userMsg(val);
-    botMsg(
-      'Пожелания записаны ✅<br><br>' +
       '<b>Шаг 5а из 5.</b> Как вас зовут?'
     );
     showTextInput('Ваше имя', function (val) {
@@ -256,12 +262,12 @@
     userMsg(val);
     botMsg(
       '📋 <b>Ваш заказ:</b><br><br>' +
-      '🎂 Тип: '     + esc(order.cakeType) + '<br>' +
-      '🍽 Порций: '  + esc(order.portions) + '<br>' +
-      '📅 Дата: '    + esc(order.date)     + '<br>' +
-      '🎨 Дизайн: '  + esc(order.design)   + '<br>' +
-      '👤 Имя: '     + esc(order.name)     + '<br>' +
-      '📞 Телефон: ' + esc(order.phone)    + '<br><br>' +
+      '🗂 Категория: '  + esc(order.category)    + '<br>' +
+      '📝 Описание: '   + esc(order.description) + '<br>' +
+      '🍽 Порций: '     + esc(order.portions)    + '<br>' +
+      '📅 Дата: '       + esc(order.date)        + '<br>' +
+      '👤 Имя: '        + esc(order.name)        + '<br>' +
+      '📞 Телефон: '    + esc(order.phone)       + '<br><br>' +
       'Всё верно? Подтверждаете заказ?'
     );
     showButtons([
@@ -282,12 +288,12 @@
     var dots    = typingDots();
     var msgText =
       '🆕 НОВЫЙ ЗАКАЗ — ' + SITE + '\n\n' +
-      '🎂 Тип торта: ' + order.cakeType + '\n' +
-      '🍽 Порций: '    + order.portions + '\n' +
-      '📅 Дата: '      + order.date     + '\n' +
-      '🎨 Дизайн: '    + order.design   + '\n' +
-      '👤 Имя: '       + order.name     + '\n' +
-      '📞 Телефон: '   + order.phone    + '\n' +
+      '🗂 Категория: '  + order.category    + '\n' +
+      '📝 Описание: '   + order.description + '\n' +
+      '🍽 Порций: '     + order.portions    + '\n' +
+      '📅 Дата: '       + order.date        + '\n' +
+      '👤 Имя: '        + order.name        + '\n' +
+      '📞 Телефон: '    + order.phone       + '\n' +
       '🌐 Источник: сайт';
 
     sendOrder(msgText).then(function (ok) {
@@ -388,6 +394,17 @@
     document.body.appendChild(panel);
 
     goMenu();
+
+    /* Mobile keyboard fix — resize panel to visible viewport */
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', function () {
+        if (window.innerWidth > 430 || panel.classList.contains('gc-hidden')) return;
+        panel.style.height = window.visualViewport.height + 'px';
+        panel.style.top    = window.visualViewport.offsetTop + 'px';
+        panel.style.bottom = 'auto';
+        messages.scrollTop = messages.scrollHeight;
+      });
+    }
   }
 
   function togglePanel() {

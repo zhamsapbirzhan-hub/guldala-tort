@@ -2,7 +2,7 @@
 
 #gc-chat-btn {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   width: 62px;
   height: 62px;
@@ -40,7 +40,7 @@
 
 #gc-panel {
   position: fixed;
-  bottom: 100px;
+  bottom: 166px;
   right: 24px;
   width: 370px;
   height: 540px;
@@ -295,7 +295,7 @@
   }
 
   #gc-chat-btn {
-    bottom: 16px;
+    bottom: 90px;
     right: 16px;
   }
 }
